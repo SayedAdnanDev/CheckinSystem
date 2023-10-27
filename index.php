@@ -33,7 +33,7 @@ $db = Database::getInstance();
             flex-direction: column;
         }
 
-        p {
+        pp {
             display: flex;
             flex-direction: row;
             align-content: center;
@@ -86,24 +86,18 @@ $db = Database::getInstance();
         <br />
     </div>
     <br>
+    <br>
+    <br>
     <div class="row" style="padding-left: 3rem;width:100%!important">
         <div class="col-md-6" style="width: 150rem;">
             <div class="card" style="width: 50%; padding: 1rem;">
                 <div class="mb" style="display: flex;flex-direction: column;">
                     <div class="row">
                         <div class=" col-md-6">
-                            <h3> Welcome 
-                                <b>
-                                    <p></p>
-                                    <?php
-                                    if (isset($_SESSION["EmployeeName"])) {
-                                        echo $_SESSION["EmployeeName"];
-                                    } else {
-                                        echo "Please Sign in to view Your records";
-                                    }
-                                    ?>
-                                </b>
+                            <h3> Check In / Out
                             </h3>
+                            <p></p>
+                            <p> Click <a href="Checkin.php" style="text-decoration:none;"> Here </a> To Visit The Check-In Page</p>
                         </div>
                     </div>
                 </div>
