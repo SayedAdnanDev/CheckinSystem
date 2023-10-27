@@ -43,6 +43,7 @@
         $auth = new Authentication();
         $didLogIn = $auth->login($Email, $Password);
         if ($didLogIn) {
+            $ThereIsUser = true;
             header("Location: Index.php");
         }else {
             $outcome = "wrong email or password";
@@ -67,13 +68,13 @@
                 <br />
                 <input type="submit" value="Login" class="btn btn-primary">
                 <input type="hidden" name="submitted" value="TRUE">
+                <br />
+                <br />
+                <p class="text-muted"> New Hire ? Sign Up <a href="SignUp.php" style="text-decoration:none;">Here !!!</a></p>
                 <p><?php echo $outcome;?></p>
             </form>
         </div>
     </div>
-    <?php
-    include 'Partials/footer.php';
-    ?>
 </body>
 
 </html>

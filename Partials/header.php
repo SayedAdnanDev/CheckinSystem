@@ -16,7 +16,6 @@ if (isset($_SESSION['EmployeeID'])) {
     $ThereIsUser = true;
   }
 }
-
 ?>
 
 

@@ -25,7 +25,7 @@ class Employee extends BaseModel {
             return $stmt->execute();
         } else {
             // Create new user
-            $query = "INSERT INTO {$this->table} (FullName, Department, JobTitle, ContactNumber, Email, PasswordHash) VALUES (?, ?)";
+            $query = "INSERT INTO {$this->table} (FullName, Department, JobTitle, ContactNumber, Email, PasswordHash) VALUES (?, ?, ?, ?, ?, ?)";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param('sssiss', $data['FullName'], $data['Department'], $data['JobTitle'], $data['ContactNumber'], $data['Email'], $data['PasswordHash']);
             return $stmt->execute();
@@ -39,6 +39,6 @@ class Employee extends BaseModel {
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc();
     }
-    
+
 }
 ?>

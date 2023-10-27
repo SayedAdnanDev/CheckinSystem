@@ -1,5 +1,6 @@
 <?php
 
+
 require_once 'DB.php';
 
 $db = Database::getInstance();
@@ -61,54 +62,55 @@ $db = Database::getInstance();
     <br>
     <div class="row" style="padding-left: 3rem;width:100%!important">
         <div class="col-md-6" style="width: 150rem;">
-            <div class="card" style="width: 30%; padding: 1rem;">
+            <div class="card" style="width: 50%; padding: 1rem;">
                 <div class="mb" style="display: flex;flex-direction: column;">
                     <div class="row">
                         <div class=" col-md-6">
-                            <h3> Welcome <b><?php echo $user->getName(); ?> </b></h3>
+                            <h3> Welcome 
+                                <b>
+                                    <p></p>
+                                    <?php
+                                    if (isset($_SESSION["EmployeeName"])) {
+                                        echo $_SESSION["EmployeeName"];
+                                    } else {
+                                        echo "Please Sign in to view Your records";
+                                    }
+                                    ?>
+                                </b>
+                            </h3>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6" style="width: 150rem;">
-            <br>
-            <br>
-            <div class="card" style="width: 30%; padding: 1rem;">
-                <form method="post">
-                    <div class="mb" style="display: flex;flex-direction: column;">
-                        <div class="row">
-                            <div class=" col-auto">
-                                <p> Enter Reservation Code to View Reservation</p>
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1">Unique Code</span>
-                                <input type="text" name="UniqueCode" class="form-control" aria-label="UniqueCode" aria-describedby="basic-addon1" value="">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-auto">
-                                <button type="submit" class="btn btn-primary">Go</button>
-                                <input type="hidden" name="submitted">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-auto">
-                                <br>
-                                <p><?php echo $mslbl ?></p>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <br>
+        <br />
     </div>
     <br>
-    <br>
-    <?php
-    include 'Partials/footer.php';
-    ?>
+    <div class="row" style="padding-left: 3rem;width:100%!important">
+        <div class="col-md-6" style="width: 150rem;">
+            <div class="card" style="width: 50%; padding: 1rem;">
+                <div class="mb" style="display: flex;flex-direction: column;">
+                    <div class="row">
+                        <div class=" col-md-6">
+                            <h3> Welcome 
+                                <b>
+                                    <p></p>
+                                    <?php
+                                    if (isset($_SESSION["EmployeeName"])) {
+                                        echo $_SESSION["EmployeeName"];
+                                    } else {
+                                        echo "Please Sign in to view Your records";
+                                    }
+                                    ?>
+                                </b>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+    </div>
 </body>
 
 </html>
