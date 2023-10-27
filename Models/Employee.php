@@ -1,7 +1,7 @@
 <?PHP
 
 require_once 'BaseModel.php';
-require_once '../Database.php';
+require_once 'DB.php';
 
 class Employee extends BaseModel {
     public $EmployeeID;

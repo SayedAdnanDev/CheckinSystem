@@ -2,7 +2,7 @@
 
 
 require_once 'BaseModel.php';
-require_once '../Database.php';
+require_once 'DB.php';
 
 class Attendance extends BaseModel {
     public $AttendanceID;
