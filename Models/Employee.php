@@ -31,5 +31,14 @@ class Employee extends BaseModel {
             return $stmt->execute();
         }
     }
+
+    public function GetEmployeeByEmail($Email){
+        $query = "SELECT * FROM {$this->table} WHERE Email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $Email);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+    
 }
 ?>
