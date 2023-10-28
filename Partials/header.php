@@ -10,7 +10,7 @@ if (!isset($_SESSION)) {
 
 // to initialize a user in every page
 $ThereIsUser = false;
-$didCheckIn;
+$didCheckIn = false;
 
 if (isset($_SESSION['EmployeeID'])) {
   $id = $_SESSION['EmployeeID'];
@@ -21,7 +21,9 @@ if (isset($_SESSION['EmployeeID'])) {
     $didCheckIn = $checkInOut->DidCheckinToday($id);
   }
 }
+
 ?>
+
 
 
 <meta charset="UTF-8" />
@@ -31,21 +33,3 @@ if (isset($_SESSION['EmployeeID'])) {
   integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
-<style>
-  footer {
-    position: fixed;
-    left: 0px;
-    bottom: 0px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: #212529;
-    color: white;
-    text-align: center;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-  }
-</style>

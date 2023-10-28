@@ -34,7 +34,7 @@ $db = Database::getInstance();
             flex-direction: column;
         }
 
-        pp {
+        p {
             display: flex;
             flex-direction: row;
             align-content: center;
@@ -52,6 +52,9 @@ $db = Database::getInstance();
     <?php
     include 'Partials/header.php';
     ?>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Orbitron'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Aldrich'>
+    <link rel="stylesheet" href="digitalClock/clock.css" />
     <meta charset="UTF-8">
     <title> HomePage </title>
 </head>
@@ -63,7 +66,7 @@ $db = Database::getInstance();
     <br>
     <div class="row" style="padding-left: 3rem;width:100%!important">
         <div class="col-md-6" style="width: 150rem;">
-            <div class="card" style="width: 50%; padding: 1rem;">
+            <div class="card" style="width: 35%; padding: 1rem;">
                 <div class="mb" style="display: flex;flex-direction: column;">
                     <div class="row">
                         <div class=" col-md-6">
@@ -81,6 +84,33 @@ $db = Database::getInstance();
                             }
                             ?>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class=" col-md-6">
+                            <br>
+                            <br>
+                            <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+                            <script src="digitalClock/script.js"></script>
+                            <br>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <?php
+                            if ($didCheckIn) {
+                                echo '
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-lg btn-block">Check Out</button>
+                                </div>
+                                ';
+                            } else {
+                                echo '
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-lg btn-block">Check In</button>
+                                </div>
+                                ';
+                            }
+                        ?>
                     </div>
                 </div>
             </div>

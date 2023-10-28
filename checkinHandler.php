@@ -15,7 +15,7 @@ class CheckinHandler
     public function DidCheckinToday($id)
     {
         //query the user
-        $query = "SELECT * FROM Attendance WHERE id = ?";
+        $query = "SELECT * FROM Attendance WHERE EmployeeID = ?";
 
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $id);
@@ -31,18 +31,20 @@ class CheckinHandler
             $current_date = date("Y-m-d");
 
             if ($mysql_date < $current_date) {
-                echo "The date is in the past.";
+                return false;
             } else if ($mysql_date == $current_date) {
                 return $row;
+            }else{
+                return false;
             }
 
+        }else{
+            return false;
         }
-        return false;
     }
 
     public function CheckIn()
     {
-
         if (!$this->DidCheckinToday($_SESSION["EmployeeID"])) {
 
             $data = array(
@@ -53,12 +55,10 @@ class CheckinHandler
             $att = new Attendance();
             $att->save($data);
         }
-
     }
 
     public function CheckOut()
     {
-
         $row = $this->DidCheckinToday($_SESSION["EmployeeID"]);
 
         if ($row) {

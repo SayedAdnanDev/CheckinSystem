@@ -33,7 +33,7 @@ $db = Database::getInstance();
             flex-direction: column;
         }
 
-        pp {
+        p {
             display: flex;
             flex-direction: row;
             align-content: center;

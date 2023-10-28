@@ -11,18 +11,20 @@
                         <a class="nav-link" aria-current="page" href="index.php">Homepage</a>
                     </li>
                     <?php
-                    if ($didCheckIn) {
-                        echo '
-                        <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="Checkin.php">Check Out Page</a>
-                        </li>
-                        ';
-                    } else {
-                        echo '
-                        <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="Checkin.php">Check In Page</a>
-                        </li>
-                        ';
+                    if ($ThereIsUser) {
+                        if ($didCheckIn) {
+                            echo '
+                            <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="Checkin.php">Check Out Page</a>
+                            </li>
+                            ';
+                        } else {
+                            echo '
+                            <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="Checkin.php">Check In Page</a>
+                            </li>
+                            ';
+                        }
                     }
                     ?>
                 </ul>
