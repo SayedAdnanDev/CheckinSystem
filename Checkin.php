@@ -2,6 +2,7 @@
 
 
 require_once 'DB.php';
+require_once 'checkinhandler.php';
 
 $db = Database::getInstance();
 
@@ -66,18 +67,19 @@ $db = Database::getInstance();
                 <div class="mb" style="display: flex;flex-direction: column;">
                     <div class="row">
                         <div class=" col-md-6">
-                            <h3> Welcome 
-                                <b>
-                                    <p></p>
-                                    <?php
-                                    if (isset($_SESSION["EmployeeName"])) {
-                                        echo $_SESSION["EmployeeName"];
-                                    } else {
-                                        echo "Please Sign in to view Your records";
-                                    }
-                                    ?>
-                                </b>
-                            </h3>
+                            <?php
+                            if ($didCheckIn) {
+                                echo '
+                                <h3> Check Out
+                                </h3>
+                                ';
+                            } else {
+                                echo '
+                                <h3> Check In 
+                                </h3>
+                                ';
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>

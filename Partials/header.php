@@ -1,6 +1,8 @@
 <?php
 
 include_once './Models/Employee.php';
+include_once 'checkinHandler.php';
+
 //start the session
 if (!isset($_SESSION)) {
   session_start();
@@ -8,12 +10,15 @@ if (!isset($_SESSION)) {
 
 // to initialize a user in every page
 $ThereIsUser = false;
+$didCheckIn;
 
 if (isset($_SESSION['EmployeeID'])) {
   $id = $_SESSION['EmployeeID'];
   if ($id < 0) {
   } else {
     $ThereIsUser = true;
+    $checkInOut = new CheckinHandler();
+    $didCheckIn = $checkInOut->DidCheckinToday($id);
   }
 }
 ?>
