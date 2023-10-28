@@ -10,9 +10,6 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="index.php">Homepage</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="Checkin.php" class="nav-link">Attendance</a>
-                    </li>
                 </ul>
                 <ul class="navbar-nav d-flex">
                     <?php

@@ -12,21 +12,21 @@ class Attendance extends BaseModel {
 
 
     public function __construct() {
-        parent::__construct('Attandance');
+        parent::__construct('Attendance');
     }
 
     public function save($data) {
         if (isset($data['id'])) {
             // Update existing user
-            $query = "UPDATE {$this->table} SET EmployeeID = ?, CheckInTime = ?, CheckOutTime = ? WHERE id = ?";
+            $query = "UPDATE {$this->table} SET EmployeeID = ?, CheckOutTime = ? WHERE id = ?";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param('iss', $data['EmployeeID'], $data['CheckInTime'], $data['CheckOutTime']);
+            $stmt->bind_param('isi',  $data['EmployeeID'], $data['CheckOutTime'], $data['id']);
             return $stmt->execute();
         } else {
             // Create new user
-            $query = "INSERT INTO {$this->table} (EmployeeID, CheckInTime, CheckOutTime) VALUES (?, ?)";
+            $query = "INSERT INTO {$this->table} (EmployeeID, CheckInTime) VALUES (?, ?)";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param('iss', $data['EmployeeID'], $data['CheckInTime'], $data['CheckOutTime']);
+            $stmt->bind_param('is', $data['EmployeeID'], $data['CheckInTime']);
             return $stmt->execute();
         }
     }

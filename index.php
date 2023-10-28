@@ -2,6 +2,7 @@
 
 
 require_once 'DB.php';
+require_once 'checkinhandler.php';
 
 $db = Database::getInstance();
 
@@ -97,7 +98,8 @@ $db = Database::getInstance();
                             <h3> Check In / Out
                             </h3>
                             <p></p>
-                            <p> Click <a href="Checkin.php" style="text-decoration:none;"> Here </a> To Visit The Check-In Page</p>
+                            <?PHP
+                            ?>
                         </div>
                     </div>
                 </div>
