@@ -2,7 +2,7 @@
 
 
 require_once 'DB.php';
-require_once 'checkinhandler.php';
+require_once 'CheckinController.php';
 
 $db = Database::getInstance();
 

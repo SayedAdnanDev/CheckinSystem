@@ -5,7 +5,9 @@ require_once 'DB.php';
 
 $db = Database::getInstance();
 
-require_once'Models/Attendace.php';
+require_once 'RecordsController.php';
+
+$RecCon = new RecordsController();
 
 ?>
 
@@ -52,8 +54,8 @@ require_once'Models/Attendace.php';
     </style>
     <?php
     include 'Partials/header.php';
-    
-    if(!isset($_SESSION['EmployeeID'])){
+
+    if (!isset($_SESSION['EmployeeID'])) {
         header('Location: Login.php');
     }
     ?>
@@ -72,7 +74,7 @@ require_once'Models/Attendace.php';
                 <div class="mb" style="display: flex;flex-direction: column;">
                     <div class="row">
                         <div class=" col-md-6">
-                            <h3> Welcome 
+                            <h3> Welcome
                                 <b>
                                     <p></p>
                                     <?php
@@ -91,6 +93,21 @@ require_once'Models/Attendace.php';
                 <div class="mb" style="display: flex;flex-direction: column;">
                     <div class="row">
                         <div class=" col-md-6">
+                            <h3> Attendance Records: </h3>
+                            <br>
+                            <?PHP
+                            if (isset($RecCon)) {
+                                $result = $RecCon->getAllRecords($_SESSION['EmployeeID']);
+                                echo "<table style='border-collapse: collapse;'>";
+                                echo "<tr><th style='border: 1px solid black; padding: 5px;'>Record ID</th><th style='border: 1px solid black; padding: 5px;'>EmployeeID</th><th style='border: 1px solid black; padding: 5px;'>CheckInTime</th><th style='border: 1px solid black; padding: 5px;'>CheckOutTime</th></tr>";
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<tr><td style='border: 1px solid black; padding: 5px;'>" . $row["id"] . "</td><td style='border: 1px solid black; padding: 5px;'>" . $row["EmployeeID"] . "</td><td style='border: 1px solid black; padding: 5px;'>" . $row["CheckInTime"] . "</td><td style='border: 1px solid black; padding: 5px;'>" . $row["CheckOutTime"] . "</td></tr>";
+                                }
+                                echo "</table>";
+                            } else {
+                                echo '<p> No records Yet </p>';
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 <?php
 
 include_once './Models/Employee.php';
-include_once 'checkinHandler.php';
+include_once 'CheckInController.php';
 
 //start the session
 if (!isset($_SESSION)) {
