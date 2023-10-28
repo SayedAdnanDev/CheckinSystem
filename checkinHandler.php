@@ -1,6 +1,7 @@
 <?PHP
 
 require_once 'Models/Attendance.php';
+require_once 'Partials/header.php';
 
 class CheckinHandler
 {
@@ -15,7 +16,7 @@ class CheckinHandler
     public function DidCheckinToday($id)
     {
         //query the user
-        $query = "SELECT * FROM Attendance WHERE EmployeeID = ?";
+        $query = "SELECT * FROM Attendance WHERE EmployeeID = ? ORDER BY id DESC LIMIT 1";
 
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $id);
@@ -26,6 +27,7 @@ class CheckinHandler
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
 
+            //set date for comparison
             $date = $row['CheckInTime'];
             $mysql_date = date("Y-m-d", strtotime($date));
             $current_date = date("Y-m-d");
@@ -33,12 +35,16 @@ class CheckinHandler
             if ($mysql_date < $current_date) {
                 return false;
             } else if ($mysql_date == $current_date) {
-                return $row;
-            }else{
+                if (isset($row['CheckOutTime'])){
+                    return false;
+                }else{
+                    return $row;
+                }
+            } else {
                 return false;
             }
 
-        }else{
+        } else {
             return false;
         }
     }

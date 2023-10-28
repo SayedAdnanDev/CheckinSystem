@@ -6,6 +6,14 @@ require_once 'checkinhandler.php';
 
 $db = Database::getInstance();
 
+$chk = new CheckinHandler();
+
+if(isset($_POST["CheckIn"])){
+    $chk->CheckIn();
+} elseif (isset($_POST["CheckOut"])) {
+    $chk->CheckOut();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +63,9 @@ $db = Database::getInstance();
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Orbitron'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Aldrich'>
     <link rel="stylesheet" href="digitalClock/clock.css" />
+
+
+
     <meta charset="UTF-8">
     <title> HomePage </title>
 </head>
@@ -98,17 +109,21 @@ $db = Database::getInstance();
                     <div class="row">
                         <?php
                             if ($didCheckIn) {
-                                echo '
-                                <div class="text-center">
-                                    <button type="button" class="btn btn-primary btn-lg btn-block">Check Out</button>
+                                echo "
+                                <div class='text-center'>
+                                    <form method='POST'>
+                                        <input type='submit' class='btn btn-primary btn-lg btn-block' name='CheckOut' value='Check Out'></input>
+                                    </form>
                                 </div>
-                                ';
+                                ";
                             } else {
-                                echo '
-                                <div class="text-center">
-                                    <button type="button" class="btn btn-primary btn-lg btn-block">Check In</button>
+                                echo "
+                                <div class='text-center'>
+                                    <form method='POST'>
+                                        <input type='submit' class='btn btn-primary btn-lg btn-block' name='CheckIn' value='Check In'></input>
+                                    </form>
                                 </div>
-                                ';
+                                ";
                             }
                         ?>
                     </div>
