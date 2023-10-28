@@ -6,7 +6,7 @@ require_once 'checkinhandler.php';
 
 $db = Database::getInstance();
 
-$chk = new CheckinHandler();
+$chk = new CheckinController();
 
 if(isset($_POST["CheckIn"])){
     $chk->CheckIn();
@@ -59,13 +59,14 @@ if(isset($_POST["CheckIn"])){
     </style>
     <?php
     include 'Partials/header.php';
+
+    if(!isset($_SESSION['EmployeeID'])){
+        header('Location: Login.php');
+    }
     ?>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Orbitron'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Aldrich'>
     <link rel="stylesheet" href="digitalClock/clock.css" />
-
-
-
     <meta charset="UTF-8">
     <title> HomePage </title>
 </head>

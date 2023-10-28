@@ -15,16 +15,21 @@
                         if ($didCheckIn) {
                             echo '
                             <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="Checkin.php">Check Out Page</a>
+                                <a class="nav-link" aria-current="page" href="Checkin.php">Check Out Page</a>
                             </li>
                             ';
                         } else {
                             echo '
                             <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="Checkin.php">Check In Page</a>
+                                <a class="nav-link" aria-current="page" href="Checkin.php">Check In Page</a>
                             </li>
                             ';
                         }
+                        echo '
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="ViewRecords.php">View Records</a>
+                            </li>
+                            ';
                     }
                     ?>
                 </ul>

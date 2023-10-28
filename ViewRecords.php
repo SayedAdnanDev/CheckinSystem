@@ -5,6 +5,8 @@ require_once 'DB.php';
 
 $db = Database::getInstance();
 
+require_once'Models/Attendace.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -50,6 +52,10 @@ $db = Database::getInstance();
     </style>
     <?php
     include 'Partials/header.php';
+    
+    if(!isset($_SESSION['EmployeeID'])){
+        header('Location: Login.php');
+    }
     ?>
     <meta charset="UTF-8">
     <title> HomePage </title>
@@ -72,8 +78,6 @@ $db = Database::getInstance();
                                     <?php
                                     if (isset($_SESSION["EmployeeName"])) {
                                         echo $_SESSION["EmployeeName"];
-                                    } else {
-                                        echo "Please Sign in to view Your records";
                                     }
                                     ?>
                                 </b>
@@ -87,21 +91,11 @@ $db = Database::getInstance();
                 <div class="mb" style="display: flex;flex-direction: column;">
                     <div class="row">
                         <div class=" col-md-6">
-                            <h3> Visit the Check In Page <a href="checkin.php" style="text-decoration:none;">Here </a> !!!</h3>
                         </div>
                     </div>
                 </div>
             </div>
             <br>
-            <div class="card" style="width: 50%; padding: 1rem;">
-                <div class="mb" style="display: flex;flex-direction: column;">
-                    <div class="row">
-                        <div class=" col-md-6">
-                            <h3> View Your Records <a href="ViewRecords.php" style="text-decoration:none;">Here </a> !!!</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <br />
     </div>

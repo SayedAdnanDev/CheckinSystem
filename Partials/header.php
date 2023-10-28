@@ -17,7 +17,7 @@ if (isset($_SESSION['EmployeeID'])) {
   if ($id < 0) {
   } else {
     $ThereIsUser = true;
-    $checkInOut = new CheckinHandler();
+    $checkInOut = new CheckinController();
     $didCheckIn = $checkInOut->DidCheckinToday($id);
   }
 }

@@ -3,7 +3,7 @@
 require_once 'Models/Attendance.php';
 require_once 'Partials/header.php';
 
-class CheckinHandler
+class CheckinController
 {
     private $db;
 
