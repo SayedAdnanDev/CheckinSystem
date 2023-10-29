@@ -9,6 +9,7 @@ require_once 'RecordsController.php';
 
 $RecCon = new RecordsController();
 
+
 ?>
 
 <!DOCTYPE html>
@@ -113,31 +114,35 @@ $RecCon = new RecordsController();
                                 echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
-                            
+
                                 // output data of each row
-                                while($row = $result->fetch_assoc()) {
-                                  echo "<tr style='border: 1px solid black;'>";
-                                  echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["id"]. "</td>";
-                                  echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["FullName"]. "</td>";
-                                  echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["Department"]. "</td>";
-                                  echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["JobTitle"]. "</td>";
-                                  echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["Email"]. "</td>";
-                                  echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["ContactNumber"]. "</td>";
-                                  echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["CheckInTime"]. "</td>";
-                                  echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["CheckOutTime"]. "</td>";
-                                  echo "</tr>";
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<tr style='border: 1px solid black;'>";
+                                    echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["id"] . "</td>";
+                                    echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["FullName"] . "</td>";
+                                    echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["Department"] . "</td>";
+                                    echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["JobTitle"] . "</td>";
+                                    echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["Email"] . "</td>";
+                                    echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["ContactNumber"] . "</td>";
+                                    echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["CheckInTime"] . "</td>";
+                                    echo "<td style='padding: 5px; border: 1px solid black; text-align:center; vertical-align:middle'>" . $row["CheckOutTime"] . "</td>";
+                                    echo "</tr>";
                                 }
-                                echo "</tbody>";  
-                                echo "</table>"; 
-                              } else {
+                                echo "</tbody>";
+                                echo "</table>";
+                            } else {
                                 echo "0 results";
-                              }
-                              
+                            }
 
-
-
-                              
-
+                            echo "
+                                <br>
+                                <br>
+                                <div class='text-center'>
+                                    <form method='POST' action='ExportReport.php'>
+                                        <input type='submit' class='btn btn-primary btn-lg btn-block' name='DownloadCSV' value='Download CSV'></input>
+                                    </form>
+                                </div>
+                                ";
                             ?>
                         </div>
                     </div>

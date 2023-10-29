@@ -1,6 +1,5 @@
 <?PHP
 
-require_once 'Partials/header.php';
 require_once 'Models/Attendance.php';
 
 class RecordsController
