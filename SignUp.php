@@ -19,7 +19,7 @@ if (isset($_POST['submitted'])) {
         'FullName' => $FullName,
         'PasswordHash' => $hashedPassword,
         'Department' => $Department,
-        'PhoneNumber' => $PhoneNumber,
+        'ContactNumber' => $PhoneNumber,
         'JobTitle' => $JobTitle
     );
 
