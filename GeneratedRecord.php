@@ -49,7 +49,7 @@ $RecCon = new RecordsController();
         html,
         body {
             width: 100% !important;
-            height: 100%;
+            min-height: 100%;
             background-color: gray;
         }
     </style>
