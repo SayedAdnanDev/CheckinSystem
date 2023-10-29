@@ -96,7 +96,7 @@ $RecCon = new RecordsController();
                             <h3> Attendance Records: </h3>
                             <br>
                             <?PHP
-                            $result = $RecCon->getAllRecords($_SESSION['EmployeeID']);
+                            $result = $RecCon->getAllRecordsByID($_SESSION['EmployeeID']);
                             if (isset($result)) {
                                 echo "<table style='border-collapse: collapse;'>";
                                 echo "<tr><th style='border: 1px solid black; padding: 5px;'>Record ID</th><th style='border: 1px solid black; padding: 5px;'>EmployeeID</th><th style='border: 1px solid black; padding: 5px;'>CheckInTime</th><th style='border: 1px solid black; padding: 5px;'>CheckOutTime</th></tr>";

@@ -102,6 +102,16 @@ $db = Database::getInstance();
                     </div>
                 </div>
             </div>
+            <br>
+            <div class="card" style="width: 50%; padding: 1rem;">
+                <div class="mb" style="display: flex;flex-direction: column;">
+                    <div class="row">
+                        <div class=" col-md-6">
+                            <h3> Generate The Attendance Report <a href="GeneratedRecord.php" style="text-decoration:none;">Here </a> !!!</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <br />
     </div>
